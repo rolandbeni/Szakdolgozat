@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3iw73ecjmg5f"]
+
+[ext_resource type="Script" path="res://enemys.gd" id="1_28vvb"]
+[ext_resource type="Texture2D" uid="uid://dquhkyh5a1li8" path="res://godot_ellenfél.png" id="2_wpx6n"]
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_28vvb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(596, 190)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_wpx6n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(570, 236, 575, 211, 567, 211, 564, 175, 574, 168, 573, 157, 578, 152, 584, 151, 590, 153, 591, 159, 590, 169, 599, 174, 604, 180, 605, 209, 596, 211, 602, 232, 601, 236, 593, 236, 585, 216, 584, 233)
