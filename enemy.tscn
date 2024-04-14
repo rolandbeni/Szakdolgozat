@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3iw73ecjmg5f"]
 
 [ext_resource type="Script" path="res://enemys.gd" id="1_28vvb"]
-[ext_resource type="Texture2D" uid="uid://dquhkyh5a1li8" path="res://godot_ellenfél.png" id="2_wpx6n"]
+[ext_resource type="Texture2D" uid="uid://c2nu0c11mx3i6" path="res://enemy.png" id="2_pgg8e"]
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_28vvb")
@@ -9,9 +9,9 @@ script = ExtResource("1_28vvb")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(662, 193)
 scale = Vector2(0.25, 0.254)
-texture = ExtResource("2_wpx6n")
+texture = ExtResource("2_pgg8e")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D"]
-position = Vector2(-6472, -1759.84)
+position = Vector2(-6320, -1854.33)
 scale = Vector2(10.8754, 9.32801)
-polygon = PackedVector2Array(570, 236, 575, 211, 567, 211, 564, 175, 574, 168, 573, 157, 578.827, 147.868, 584.344, 148.396, 590, 153, 591, 159, 590, 169, 599, 174, 604, 180, 605, 209, 596, 211, 602, 232, 599.884, 237.622, 591.056, 236.355, 586.183, 215.464, 584.804, 233.823)
+polygon = PackedVector2Array(567.517, 250.706, 572.666, 219.473, 565.31, 221.161, 567.517, 182.753, 576.712, 172.202, 573, 157, 578.827, 147.868, 584.344, 148.396, 589.585, 151.099, 591, 159, 588.85, 170.091, 591.056, 174.734, 597.677, 181.487, 599.148, 216.94, 590.689, 218.207, 593.631, 232.557, 595.102, 248.173, 586.275, 249.017, 582.965, 215.252, 581.126, 250.283)
