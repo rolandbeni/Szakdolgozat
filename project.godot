@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*res://game_manager/game_manager.gd"
 GlobalControl="*res://Gui/control.tscn"
 SaveBestScore="*res://Save_best_score.gd"
+PyScriptLoader="*res://bg/py_script_loader.gd"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://fqoqjdeja4bx"]
+[gd_scene load_steps=17 format=3 uid="uid://fqoqjdeja4bx"]
 
 [ext_resource type="PackedScene" uid="uid://d3iw73ecjmg5f" path="res://enemy/enemy.tscn" id="1_6mh68"]
 [ext_resource type="PackedScene" uid="uid://dp0jgbpcx718k" path="res://raven/raven.tscn" id="2_o8us7"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b126s1tb61jpn" path="res://save_best_score.tscn" id="9_0tfxu"]
 [ext_resource type="Texture2D" uid="uid://dew6wa0q7tcd7" path="res://crosshair.png" id="10_q13ye"]
 [ext_resource type="Script" path="res://bg/crosshair.gd" id="11_g4hjw"]
+[ext_resource type="Script" path="res://bg/py_script_loader.gd" id="12_mkrwv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk5dd"]
 size = Vector2(1178, 20)
@@ -116,6 +117,9 @@ text = "||"
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_q13ye")
 script = ExtResource("11_g4hjw")
+
+[node name="py_script_loader" type="Node" parent="."]
+script = ExtResource("12_mkrwv")
 
 [connection signal="pressed" from="pause" to="game_manager" method="_on_button_pressed"]
 [connection signal="pressed" from="pause" to="pause" method="_on_pressed"]
