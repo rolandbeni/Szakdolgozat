@@ -48,7 +48,7 @@ while True:
 
     if len(lmList) != 0:
 
-        if lmList[tipIds[4]][1] > lmList[tipIds[4] - 1][1]:
+        if lmList[tipIds[0]][1] > lmList[tipIds[0] - 1][1]:
             pyautogui.keyDown('space')
             time.sleep(0.1)
             pyautogui.keyUp('space')
