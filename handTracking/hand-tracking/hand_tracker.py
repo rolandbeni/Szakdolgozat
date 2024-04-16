@@ -49,10 +49,10 @@ while True:
     if len(lmList) != 0:
 
         if lmList[tipIds[0]][1] > lmList[tipIds[0] - 1][1]:
-            pyautogui.keyDown('space')
+            pyautogui.mouseDown(xx, yy, "right")
             time.sleep(0.1)
-            pyautogui.keyUp('space')
-
+            pyautogui.mouseUp(xx, yy, "right")
+            
         if lmList[tipIds[2]][2] < lmList[tipIds[2] - 2][2]:
             pyautogui.mouseDown(xx,yy,"left")
             time.sleep(0.1)
