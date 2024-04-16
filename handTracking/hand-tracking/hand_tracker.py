@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import time
+import pyautogui
 import os
 
 cap=cv2.VideoCapture(0)
@@ -34,7 +35,7 @@ while True:
                 if id == 8:
                     cv2.circle(img, (cx, cy), 10, (255, 0, 255), cv2.FILLED)
                     xx, yy=cx, cy
-
+            pyautogui.moveTo(xx, yy, duration=0.01)
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
     cTime=time.time()
     fps=1/(cTime-pTime)
