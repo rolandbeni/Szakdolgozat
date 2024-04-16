@@ -21,6 +21,15 @@ GameManager="*res://game_manager/game_manager.gd"
 GlobalControl="*res://Gui/control.tscn"
 SaveBestScore="*res://Save_best_score.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
+[filesystem]
+
+import/blender/enabled.web=true
+import/fbx/enabled.web=true
+
 [input]
 
 shoot={
