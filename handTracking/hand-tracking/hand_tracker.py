@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 import pyautogui
+
 import os
 
 cap=cv2.VideoCapture(0)
@@ -35,7 +36,7 @@ while True:
                 if id == 8:
                     cv2.circle(img, (cx, cy), 10, (255, 0, 255), cv2.FILLED)
                     xx, yy=cx, cy
-            pyautogui.moveTo(xx, yy, duration=0.01)
+            pyautogui.moveTo(xx, yy)
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
     cTime=time.time()
     fps=1/(cTime-pTime)
@@ -48,11 +49,14 @@ while True:
     if len(lmList) != 0:
 
         if lmList[tipIds[0]][1] > lmList[tipIds[0] - 1][1]:
-            pyautogui.press('space')
+            pyautogui.keyDown('space')
+            time.sleep(1)
+            pyautogui.keyUp('space')
+
         if lmList[tipIds[2]][2] < lmList[tipIds[2] - 2][2]:
-            pyautogui.leftClick(xx,yy)
-
-
+            pyautogui.mouseDown(xx,yy,"left")
+            time.sleep(1)
+            pyautogui.mouseUp(xx, yy, "left")
 
 
     cv2.putText(img, str(int(fps)), (10,70), cv2.FONT_HERSHEY_PLAIN, 3, (255,0,255),3 )
