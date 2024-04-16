@@ -46,24 +46,15 @@ while True:
     # print(lmList)
 
     if len(lmList) != 0:
-        fingers = []
 
-        # Thumb
         if lmList[tipIds[0]][1] > lmList[tipIds[0] - 1][1]:
-            fingers.append(1)
-        else:
-            fingers.append(0)
+            pyautogui.press('space')
+        if lmList[tipIds[2]][2] < lmList[tipIds[2] - 2][2]:
+            pyautogui.leftClick(xx,yy)
 
-        # 4 Fingers
-        for id in range(1, 5):
-            if lmList[tipIds[id]][2] < lmList[tipIds[id] - 2][2]:
-                fingers.append(1)
-            else:
-                fingers.append(0)
 
-        # print(fingers)
-        totalFingers = fingers.count(1)
-        print(totalFingers)
+
+
     cv2.putText(img, str(int(fps)), (10,70), cv2.FONT_HERSHEY_PLAIN, 3, (255,0,255),3 )
 
     cv2.imshow("Image", img)
