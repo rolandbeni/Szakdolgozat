@@ -3,8 +3,9 @@ extends Node
 
 
 func _ready():
-	var path = "res://hand-tracking/dist/hand_tracker.exe"
-	var result = OS.execute(path, [])
+	var path = "res://hand-tracking/hand_tracker.py"
+	var result = OS.execute('python', [path])
+	print(result)
 	if result == OK:
 		print("Script executed successfully")
 	else:
