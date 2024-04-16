@@ -24,7 +24,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p42v5"]
-size = Vector2(635, 185)
+size = Vector2(815, 522.5)
 
 [node name="raven" type="CharacterBody2D"]
 process_mode = 1
@@ -38,7 +38,7 @@ animation = &"fly"
 autoplay = "fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(570, 57)
+position = Vector2(580.5, 90.75)
 scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_p42v5")
 

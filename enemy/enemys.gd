@@ -48,7 +48,8 @@ func _input(event):
 			if enemy_rect.has_point(enemy.to_local(mouse_position)):
 				game.set_score(75+bonus)
 				bonus+=5
-				invisible_duration-=0.1
+				invisible_duration-=0.05
+				appear_time-=0.05
 				hide_enemy()
 
 func hide_enemy():
