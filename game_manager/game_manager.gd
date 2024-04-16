@@ -5,7 +5,7 @@ var ammo:int =6
 var game_time=60
 var score=0
 var best_score=0
-signal endgame
+
 
 
 func _ready():
@@ -21,9 +21,9 @@ func _process(delta):
 			best_score=score
 			#var data = {"score": best_score }   
 			#save.save(data)
-		emit_signal("endgame")
+		game_time=60
 		get_tree().set_pause(true)
-		game_time=1
+		
 		
 func get_time():
 	return int(game_time)

@@ -5,5 +5,3 @@
 [node name="Node" type="Node"]
 process_mode = 1
 script = ExtResource("1_xwbag")
-
-[connection signal="endgame" from="." to="." method="_on_endgame"]

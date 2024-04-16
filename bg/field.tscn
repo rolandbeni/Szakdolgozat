@@ -103,9 +103,9 @@ bbcode_enabled = true
 script = ExtResource("7_fr6ii")
 
 [node name="pause" type="Button" parent="."]
-offset_left = 568.0
-offset_right = 596.0
-offset_bottom = 31.0
+offset_left = 544.0
+offset_right = 600.0
+offset_bottom = 40.0
 text = "||"
 
 [node name="Control" parent="." instance=ExtResource("8_p0o8x")]
@@ -117,7 +117,6 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_q13ye")
 script = ExtResource("11_g4hjw")
 
-[connection signal="endgame" from="game_manager" to="Control" method="_on_game_manager_endgame"]
 [connection signal="pressed" from="pause" to="game_manager" method="_on_button_pressed"]
 [connection signal="pressed" from="pause" to="pause" method="_on_pressed"]
 [connection signal="pressed" from="pause" to="Control" method="_on_pause_pressed"]
