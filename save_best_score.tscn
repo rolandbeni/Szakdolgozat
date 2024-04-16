@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b126s1tb61jpn"]
+
+[ext_resource type="Script" path="res://Save_best_score.gd" id="1_jiysq"]
+
+[node name="Save_best_score" type="Node2D"]
+script = ExtResource("1_jiysq")

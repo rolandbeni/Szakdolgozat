@@ -1,8 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://fqoqjdeja4bx"]
+[gd_scene load_steps=16 format=3 uid="uid://fqoqjdeja4bx"]
 
 [ext_resource type="PackedScene" uid="uid://d3iw73ecjmg5f" path="res://enemy/enemy.tscn" id="1_6mh68"]
 [ext_resource type="PackedScene" uid="uid://dp0jgbpcx718k" path="res://raven/raven.tscn" id="2_o8us7"]
 [ext_resource type="Texture2D" uid="uid://dblnapn30e6qh" path="res://bg/háttérgodot.png" id="3_gueja"]
+[ext_resource type="PackedScene" uid="uid://c70rlu5x64uyp" path="res://game_manager/game_manager.tscn" id="4_uegw0"]
+[ext_resource type="Script" path="res://Gui/Score.gd" id="5_qqbyf"]
+[ext_resource type="Script" path="res://Gui/Ammo.gd" id="6_fehdi"]
+[ext_resource type="Script" path="res://Gui/Time.gd" id="7_fr6ii"]
+[ext_resource type="PackedScene" uid="uid://cuic6bxovmult" path="res://Gui/control.tscn" id="8_p0o8x"]
+[ext_resource type="PackedScene" uid="uid://b126s1tb61jpn" path="res://save_best_score.tscn" id="9_0tfxu"]
+[ext_resource type="Texture2D" uid="uid://dew6wa0q7tcd7" path="res://crosshair.png" id="10_q13ye"]
+[ext_resource type="Script" path="res://bg/crosshair.gd" id="11_g4hjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk5dd"]
 size = Vector2(1178, 20)
@@ -17,6 +25,7 @@ size = Vector2(26, 624)
 size = Vector2(26, 624)
 
 [node name="field" type="Node2D"]
+process_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -17.0
@@ -47,3 +56,69 @@ shape = SubResource("RectangleShape2D_gqm24")
 [node name="enemy" parent="." instance=ExtResource("1_6mh68")]
 
 [node name="raven" parent="." instance=ExtResource("2_o8us7")]
+
+[node name="game_manager" parent="." instance=ExtResource("4_uegw0")]
+
+[node name="score" type="RichTextLabel" parent="."]
+offset_left = 29.0
+offset_top = 11.0
+offset_right = 256.0
+offset_bottom = 120.0
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "
+"
+tab_size = 6
+text_direction = 3
+structured_text_bidi_override_options = [null, null, null, null]
+script = ExtResource("5_qqbyf")
+
+[node name="Ammo" type="RichTextLabel" parent="."]
+offset_left = 895.0
+offset_top = 484.0
+offset_right = 1154.0
+offset_bottom = 601.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
+script = ExtResource("6_fehdi")
+
+[node name="ColorRect" type="ColorRect" parent="Ammo"]
+modulate = Color(0.329412, 0.0235294, 0.0470588, 1)
+self_modulate = Color(1, 1, 1, 0.764706)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 253.0
+offset_bottom = 115.0
+
+[node name="Time" type="RichTextLabel" parent="."]
+offset_left = 1056.0
+offset_top = 10.0
+offset_right = 1198.0
+offset_bottom = 74.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+script = ExtResource("7_fr6ii")
+
+[node name="pause" type="Button" parent="."]
+offset_left = 568.0
+offset_right = 596.0
+offset_bottom = 31.0
+text = "||"
+
+[node name="Control" parent="." instance=ExtResource("8_p0o8x")]
+
+[node name="Save_best_score" parent="." instance=ExtResource("9_0tfxu")]
+
+[node name="crosshair" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_q13ye")
+script = ExtResource("11_g4hjw")
+
+[connection signal="endgame" from="game_manager" to="Control" method="_on_game_manager_endgame"]
+[connection signal="pressed" from="pause" to="game_manager" method="_on_button_pressed"]
+[connection signal="pressed" from="pause" to="pause" method="_on_pressed"]
+[connection signal="pressed" from="pause" to="Control" method="_on_pause_pressed"]
+[connection signal="restart" from="Control" to="game_manager" method="_on_control_restart"]

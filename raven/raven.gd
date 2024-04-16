@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var game=$"../game_manager"
 var speed:float = 150
 @onready var raven=$AnimatedSprite2D
 var is_visible = true
@@ -21,7 +22,8 @@ func _process(delta):
 		if timer<=0:
 			show()
 			is_visible=true
-	
+			
+			
 func check_direction():
 	if velocity.x<0:
 		raven.flip_h=true
@@ -32,10 +34,15 @@ func check_direction():
 
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("shoot"):
-		hide()
-		is_visible=false
-		timer=invisible_duration
-		if velocity.x<0:
-			velocity.x-=50
-		else:
-			velocity.x+=50
+		if game.get_ammo()>0:
+			
+			hide()
+			is_visible=false
+			timer=invisible_duration
+			game.set_score(10+abs(velocity.x)/10)
+			if velocity.x<0:
+				velocity.x-=50
+			else:
+				velocity.x+=50
+func _on_control_restart():
+	get_tree().reload_current_scene()

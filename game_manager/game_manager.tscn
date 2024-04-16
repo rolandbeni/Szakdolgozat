@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c70rlu5x64uyp"]
+
+[ext_resource type="Script" path="res://game_manager/game_manager.gd" id="1_xwbag"]
+
+[node name="Node" type="Node"]
+process_mode = 1
+script = ExtResource("1_xwbag")
+
+[connection signal="endgame" from="." to="." method="_on_endgame"]

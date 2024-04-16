@@ -27,6 +27,7 @@ animations = [{
 size = Vector2(635, 185)
 
 [node name="raven" type="CharacterBody2D"]
+process_mode = 1
 script = ExtResource("1_vt2k4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

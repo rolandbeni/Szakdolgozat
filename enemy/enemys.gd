@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
+@onready var game=$"../game_manager"
 @onready var enemy = $Sprite2D 
 var timer = 0
 var appear_time = 3
 var invisible_duration = 1.5
 var is_visible = true
-
+var bonus=0
 
 func _ready():
 	
@@ -41,12 +42,19 @@ func respawn_enemy():
 
 func _input(event):
 	if event.is_action_pressed("shoot"):
-		var mouse_position = get_global_mouse_position()
-		var enemy_rect = enemy.get_rect()
-		if enemy_rect.has_point(enemy.to_local(mouse_position)):
-			hide_enemy()
+		if game.get_ammo()>0:
+			var mouse_position = get_global_mouse_position()
+			var enemy_rect = enemy.get_rect()
+			if enemy_rect.has_point(enemy.to_local(mouse_position)):
+				game.set_score(75+bonus)
+				bonus+=5
+				invisible_duration-=0.1
+				hide_enemy()
 
 func hide_enemy():
 	is_visible = false
 	timer=invisible_duration
 	hide()
+
+func _on_control_restart():
+	get_tree().reload_current_scene()
